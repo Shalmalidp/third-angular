@@ -1,10 +1,21 @@
 
-function SingleController ($scope, $http, URL, $stateParams) {
+function SingleController ($scope, $http, URL, $stateParams, $state) {
+    
+  init();
   
-  console.log($stateParams);
+  function init () {
+    $http.get(URL + $stateParams.itemId).then( (res) => {
+      $scope.singleItem = res.data;
+    });
+  }
   
+  $scope.deleteItem = function (itemId) { 
+    $http.delete(URL + itemId).then( (res) => { 
+      $state.go('list'); 
+    });
+  }
   
 }
 
-SingleController.$inject = ['$scope', '$http', 'URL', '$stateParams'];
+SingleController.$inject = ['$scope', '$http', 'URL', '$stateParams', '$state'];
 export { SingleController };

@@ -12,6 +12,7 @@ function config ($stateProvider, $urlRouterProvider) {
     })
     .state('single', {
       url: '/single/:itemId',
+      
       templateUrl: 'templates/single.tpl.html',
       controller: 'SingleController'
     })
