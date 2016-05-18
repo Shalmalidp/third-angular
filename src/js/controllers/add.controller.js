@@ -1,4 +1,4 @@
-function AddController ($scope, $http, URL) {
+function AddController ($scope, $http, URL, $state) {
   
     
   $scope.addFoodItem = function (foodObj) {
@@ -6,8 +6,8 @@ function AddController ($scope, $http, URL) {
     $http.post(URL, foodObj).then( (res) => {
       console.log(res);
       
-      // Clear the form
-      $scope.food = {};   
+      // Route the User to the list page
+      $state.go('list');
     });
     
   }
@@ -15,6 +15,6 @@ function AddController ($scope, $http, URL) {
   
 }
 
-AddController.$inject = ['$scope', '$http', 'URL'];
+AddController.$inject = ['$scope', '$http', 'URL', '$state'];
 export { AddController }
 
