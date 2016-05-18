@@ -1,5 +1,6 @@
 function ListController () {
-  
+
+
 }
 
 ListController.$inject = [];
