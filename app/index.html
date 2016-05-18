@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body ng-app="app">
-    <div class="container" ng-controller="CoolController">
-      <p class="title" ng-repeat="a in animals">
-        {{ a }}
-      </p>
-    </div>
+    <div class="container" ui-view></div>
     <script src="js/bundle.js"></script>
   </body>
 </html>

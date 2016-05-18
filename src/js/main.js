@@ -1,19 +1,25 @@
 
 import angular from 'angular';
+import 'angular-ui-router';
 
 
-// Register Our Module
+// Import Our Controllers
+import { ListController }   from './controllers/list.controller';
+import { SingleController } from './controllers/single.controller';
+import { AddController }    from './controllers/add.controller';
+
+// Import Our Configuration
+import { config } from './config';
+
+
+// Start Angular
 angular
-  .module('app', []) // Setter for a module
-  .controller('CoolController', ['$scope', function ($scope) {
-    
-    let farm = ['goat', 'zebra', 'lion', 'bear'];
-    
-    
-    $scope.animals = farm.map( function (an) {
-      return an + " is from my farm";
-    });
-    
-    
-  }])
+  // Setter for a module (register)
+  .module('app', ['ui.router'])
+  // Register Our Configuration
+  .config(config)
+  // Register Our Controllers
+  .controller('ListController', ListController)
+  .controller('SingleController', SingleController)
+  .controller('AddController', AddController)
 ;
