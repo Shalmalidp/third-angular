@@ -1,16 +1,19 @@
-function ListController ($scope, $http, URL) {
+function ListController ($http, URL) {
+
+//dont need $scope anymore as we have vm as an instance of the controller.
+  let vm = this;
 
   init();
 
   function init () {
     
     $http.get(URL).then( (res) => {
-      $scope.allFoods = res.data;
+      vm.allFoods = res.data;
     });   
     
   }
 
 }
 
-ListController.$inject = ['$scope', '$http', 'URL'];
+ListController.$inject = ['$http', 'URL'];
 export { ListController };

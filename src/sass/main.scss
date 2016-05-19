@@ -1,14 +1,23 @@
 @import "bulma";
 
-.container {
+.wrapper{
   width: 500px;
   margin: 25px auto;
 }
 
 .nav {
   padding: 0 15px;
+   background-color: grey;
+
+   .nav-item{
+    color:orange
+   }
 }
 
 .card {
   margin-bottom: 15px;
+}
+
+.section{
+   background-color:orange;
 }

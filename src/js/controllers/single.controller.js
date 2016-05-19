@@ -1,15 +1,15 @@
 
-function SingleController ($scope, $http, URL, $stateParams, $state) {
-    
+function SingleController ($http, URL, $stateParams, $state) {
+    let vm = this;
   init();
   
   function init () {
     $http.get(URL + $stateParams.itemId).then( (res) => {
-      $scope.singleItem = res.data;
+      vm.singleItem = res.data;
     });
   }
   
-  $scope.deleteItem = function (itemId) { 
+  vm.deleteItem = function (itemId) { 
     $http.delete(URL + itemId).then( (res) => { 
       $state.go('list'); 
     });
@@ -17,5 +17,5 @@ function SingleController ($scope, $http, URL, $stateParams, $state) {
   
 }
 
-SingleController.$inject = ['$scope', '$http', 'URL', '$stateParams', '$state'];
+SingleController.$inject = ['$http', 'URL', '$stateParams', '$state'];
 export { SingleController };

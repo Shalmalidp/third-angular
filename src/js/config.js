@@ -5,21 +5,25 @@ function config ($stateProvider, $urlRouterProvider) {
   
   // Define our app states
   $stateProvider
-    .state('list', {
+    .state('root', {
+      abstract    :true,
+      templateUrl :'templates/layout.tpl.html',
+
+    })
+    .state('root.list', {
       url: '/',
       templateUrl: 'templates/list.tpl.html',
-      controller: 'ListController'
+      controller: 'ListController as vm'
     })
-    .state('single', {
-      url: '/single/:itemId',
-      
+    .state('root.single', {
+      url: '/single/:itemId', 
       templateUrl: 'templates/single.tpl.html',
-      controller: 'SingleController'
+      controller: 'SingleController as vm'
     })
-    .state('add', {
+    .state('root.add', {
       url: '/add',
       templateUrl: 'templates/add.tpl.html',
-      controller: 'AddController'
+      controller: 'AddController as vm'
     })
   ;
   

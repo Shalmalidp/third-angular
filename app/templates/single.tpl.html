@@ -3,12 +3,14 @@
 
 <div class="card is-fullwidth">
   <header class="card-header">
-    <p class="card-header-title">{{ singleItem.item }}</p>
+    <p class="card-header-title">{{ vm.singleItem.item }}</p>
   </header>
   <div class="card-content">
-    <div class="content">Made by {{ singleItem.brand }}</div>
+    <div class="content">Made by {{ vm.singleItem.brand }}</div>
   </div>
   <footer class="card-footer">
-    <a class="card-footer-item" ng-click="deleteItem(singleItem._id)">Delete</a>
+    <a class="card-footer-item" ng-click="vm.deleteItem(vm.singleItem._id)"><span>Delete</span><span class="icon">
+    <i class="fa fa-times"></i>
+  </span></a>
   </footer>
 </div>
